@@ -374,7 +374,31 @@ footer {
 
 
 
-
+/* ------
+  Exploading Mouse Click
+------ */
+.explosion_boom {
+    width: 39px;
+    height: 75px;
+    background-image: url(../images/boom.gif);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    -webkit-animation: sprite 0.8s steps(15) 1;
+    animation: sprite 0.8s steps(15) 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    position: absolute;
+    bottom: 0;
+    left: -6px;
+}
+.explosion_burn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-image: url(../images/burn.gif);
+    background-size: contain;
+    z-index: 2;
+}
 
 
 

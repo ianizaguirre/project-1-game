@@ -63,9 +63,7 @@ function countdownVisual() {
 		if ( countDown === 'START' ) {
 
 			liveTextArea.style.display = 'none';
-				$(".game-rules").slideUp('slow');
-				$(".fa-minus-hexagon").hide();
-	  			$(".fa-plus-hexagon").show();
+				closedAccordionJQ();
 		}
 
 		liveTextArea.textContent = countDown;
