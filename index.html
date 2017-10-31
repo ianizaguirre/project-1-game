@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First JS Game Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+    <div class="game-top-wrapper flex">
+    	<header> 
+            <div class="dark-blue-back">
+                <div class="contain-50">
+    		       <h1>jewel thief</h1>	
+                </div>
+            </div>
+    	</header>
+
+                <section class="rules-container flex">
+                    <div class="light-blue-back">
+                        <div class="contain-50">
+                            
+                            <div class="accordion-wrap flex">
+
+                                <span class="accordion-icon"> 
+                                    <i class="fa fa-minus-hexagon "></i>
+                                    <i class="fa fa-plus-hexagon "></i> 
+                                </span>
+
+                                <div class="game-rules"><strong>Rules:</strong><span>Each turn we can remove 1, 2, or 3 Gems from the pile. The last one to choose the Gavel looses!</span></div>
+
+                            </div> <!-- Accordion-wrap END -->
+                   
+                            <div class="live-text-area-wrap">
+
+                                    <div class="live-text-area"></div>
+                                    <button class="start-game primary-button">Start New Game</button>
+                                    
+                            </div><!--Live Text Area Wrap -->
+
+                        </div> <!-- Contain-50 -->
+                   </div> <!-- Light blue back -->  
+                </section><!-- Section END -->
+    </div> <!-- Game TOP Wrapper -->
+
+
+
+    <div class="wrapper">      
+
+            <div class="zig-zag-bottom"></div>
+            <div class="zig-zag-sep"></div>
+        	<section class="center-me">
+                    <!-- <h2>The Pile:</h2> -->
+                    <div class="primary-game-container flex contain">
+                        <div id="list">
+                          <ol class="flex">
+                            <li class="gavel"><span> <i class="fa fa-gavel"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                            <li><span> <i class="fa fa-gem"></i> </span></li>
+                          </ol>      
+                        </div>
+                    </div> <!-- Primary Game Container -->
+            </section>
+                <div class="zig-zag-sep"></div>
+                <div class="zig-zag-top"></div>
+            
+
+
+
+
+
+           <!--  <section class="player-info-block center-me">
+                    <p> Your Current Selection: * <span id="player-live-selection">0</span> Gem</p> 
+            </section> -->
+                
+
+                
+            <section>
+                <div class="center-me">
+                <button class="add-gem primary-button">Add Back A Gem</button> <button class="remove-gem primary-button">Remove A Gem</button> <button class="end-turn primary-button">End My Turn</button>
+                </div>      
+            </section>
+
+
+           <section>
+                <div id="game-log-wrapper flex">
+                    <h3>Game History</h3>
+                    <h4>Last Moves Recap</h4>
+
+                    <p>Ai Just Removed _ <span id="ai-just-removed-recap">0</span> _ from the pile!</p>
+
+                    <p>Your at Turn # _ <span id="human-current-turn-place">0</span> _. Make Your Move!</p>
+               
+                        <div id="loader"></div> 
+                </div>
+            </section>
+
+
+
+            <footer>
+               <div class="inner-footer">
+                   <br />
+               </div>
+            </footer>
+       
+    </div> <!-- Wrapper -->
+    <!-- Font Awesome Scripts -->
+    <script defer src="./FontAwesomeJs/packs/solid.js"></script> 
+    <script defer src="./FontAwesomeJs/fontawesome.js"></script>
+    <!-- jQuery Script -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" 
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
+    crossorigin="anonymous"></script>
+    <!-- JS and jQuery file tree -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

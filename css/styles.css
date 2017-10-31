@@ -1,0 +1,383 @@
+body {
+  width: 100%;
+  margin: 0 auto;
+	background-color: #f24b4b;
+	color: #ffffff;
+    font-family:  'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+.contain-50 {
+  width: 50%;
+  margin: 0 auto;
+}
+.contain-90 {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.game-top-wrapper {
+  flex-direction: column;
+}
+.h1-wrap {
+
+}
+
+
+.dark-blue-back {
+  background-color: #13042b;
+  border-bottom: 2px solid #13042b;
+}
+.light-blue-back {
+  background-color: #6bd6f1;
+}
+
+h1 {
+    color: #f24b4b;
+    margin: 0;
+    font-size: 124px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+   /* text-align: center;*/
+}
+
+
+.rules-container {
+  flex-direction: column;
+}
+.accordion-wrap {
+  min-height: 50px;
+  align-items: baseline;
+}
+.game-rules {
+  font-size: 21px;
+  /*line-height: 39px;*/
+  display: inherit;
+  color: #000;
+  margin: 0;
+  padding-left: 25px;
+}
+.game-rules strong {
+    padding-right: 2%;
+    font-weight: 700;
+}
+.accordion-icon {
+  background-color: #13042b;
+  padding: 10px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  display: inline-block;
+}
+.accordion-icon:hover {
+  cursor: pointer;
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s, border-color 0.3s ease 0s, width 0.3s ease 0s, opacity 0.3s ease 0s;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+
+
+
+.fa-minus-hexagon {
+  color: #f24b4b;
+}
+.fa-plus-hexagon {
+  color: #5fcf80;
+}
+.accordion-icon:hover {
+  opacity: 0.9;
+}
+.fa-minus-hexagon:hover, .fa-plus-hexagon:hover {
+  opacity: 0.8;
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s, border-color 0.3s ease 0s, width 0.3s ease 0s, opacity 0.3s ease 0s;
+}
+
+
+.live-text-area-wrap {
+    margin-top: 7%;
+    padding-left: 8%;
+}
+
+/* ------- FIX ----- */
+/*.live-text-area {        
+    font-size: 250px;
+    color: #000;
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    bottom: 50%;
+    margin: auto;
+    z-index: 5;
+    font-weight: 700;
+}*/
+.live-text-area {        
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    font-size: 290px;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    z-index: 5;
+    font-weight: 700;
+    color: #000;
+}
+
+
+/* ------
+  Zig Zags
+ ------ */
+.zig-zag-sep {
+    min-height: 140px;
+    padding: 32px 0;
+  }
+.zig-zag-bottom, .zig-zag-top {
+      background-color: #6bd6f1;
+    padding: 32px 0;
+  }
+.zig-zag-bottom {
+  padding-top: 0;
+}
+.zig-zag-bottom:after{
+    background: 
+    linear-gradient(-45deg, transparent 16px, #6bd6f1 0), 
+    linear-gradient(45deg, transparent 16px, #1ba1e2  0);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-size: 22px 32px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 32px;
+    position: relative;
+    top:64px;
+    left:0px;
+}
+.zig-zag-top:before{
+    background: 
+    linear-gradient(-45deg, #6bd6f1 16px, red 16px, blue 16px,  transparent 0), 
+    linear-gradient(45deg, #1ba1e2 16px, transparent 0);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 22px 32px;
+    content: " ";
+    display: block;
+    height: 32px;
+    width: 100%;
+    position: relative;
+    bottom: 64px;
+    left:0;
+}
+
+
+
+
+
+
+ h2, h3, h4 {
+  margin: 0;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+a {
+  text-decoration: none;
+}
+
+
+h2 {
+  font-size: 72px;
+  line-height: 88px;
+}
+h3 {
+  font-size: 40px;
+  line-height: 52px;
+}
+h4 {
+  font-size: 33px;
+  line-height: 33px;
+}
+
+
+
+
+/* ------
+  Flex Box
+------ */
+
+.flex {
+  display: flex;
+}
+
+.primary-game-container {
+    justify-content: center;
+}
+
+li {
+    display: flex;
+    font-size: 32px;
+    color: #6bd6f1;
+}
+/* li span {
+    display: flex;
+}*/
+.gavel {
+  color: #13042b;
+}
+
+#list li > span {
+    padding: 12px;
+}
+#list li > span:hover {
+    color: #FFFE55;
+    cursor: pointer;
+    border: solid 2px #FFFE55;
+}
+
+
+
+
+
+
+
+section.player-info-block {
+	color: #000;
+  font-weight: 300;
+}
+
+/* Buttons */
+.primary-button {
+	color: #ffffff;
+    border-radius: 4px;
+  font-size: 22px;
+	font-weight: 500;
+	padding: 20px 20px;
+	cursor: pointer;
+	transition: color 0.3s ease 0s, background-color 0.3s ease 0s, border-color 0.3s ease 0s, width 0.3s ease 0s, opacity 0.3s ease 0s;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+button.start-game {
+/*	color: #5fcf80;
+	background-color: transparent;
+  border: 2px solid #5fcf80;*/
+  color: #f24b4b;
+  background-color: transparent;
+  border: 2px solid #f24b4b;
+}
+button.start-game:hover {
+    color: #34ad58;
+    border-color: #34ad58;
+}
+button.add-gem {
+	background-color: #5fcf80;
+    border: 2px solid #5fcf80;
+}
+button.add-gem:hover {
+    background-color: #3ac162;
+    border-color: #3ac162;
+}
+button.remove-gem {
+    background-color: #c25975;
+    border: 2px solid #c25975;
+}
+button.remove-gem:hover {
+	background-color: #bb4665;
+    border-color: #bb4665;
+}
+button.end-turn {
+	color: #c25975;
+	background-color: transparent;
+  border: 2px solid #c25975;
+  opacity: 0.7;
+}
+button.end-turn:hover {
+  color: #aa3e5b;
+  border-color: #aa3e5b;
+  opacity: 1;
+}
+.primary-button:disabled, .primary-button:disabled:hover {
+  background-color: transparent;
+  color: #7b8b8e;
+  opacity: 0.5;
+  border: 2px solid #e8ebed;
+  cursor: default;
+}
+
+/* Classes To Resuse */
+.center-me {
+	text-align: center;
+}
+
+/* --------- 
+  Loader Animation 
+ ---------- */
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Center the loader */
+#loader {
+  display: none;
+ /* position: absolute;*/
+  /*left: 50%;
+  top: 50%;*/
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  /*margin: -75px 0 0 -75px;*/
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+/* --- --- END --- --- */
+
+
+/*
+.player-identity-human, .turn-tracker-human {
+    background: yellow;
+    font-size: 22px;
+}
+*/
+
+
+
+
+/* ------
+  Footer
+------ */
+footer {
+  padding-top: 50px;
+}
+.inner-footer {
+  background-color: #13042b;
+}
+
+
+
+
+
+
+
+
+
+
+
