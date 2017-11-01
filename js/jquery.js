@@ -108,13 +108,36 @@ function showMainButtonRow_JQ() {
 //showMainButtonRow_JQ();
 
 
-
+ 
 /* ------------ */
-// Change Mouse Cursor
-$(document).on('mousemove', function(e){
-    $('.emoji-cursor').css({
-       left:  e.pageX,
-       top:   e.pageY
-    });
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -124,6 +124,7 @@ function turnTimer() {
 		turnTimer();
 
 
+
 			function startGameBlock() {
 
 				thenHideLoader();
@@ -383,35 +384,7 @@ function ifGameLost() {
 
 
 
-/* ----------- Idea that helped me figure out event.page X and Y */
-// $(function (){
-
-// 	$(window).mousemove(function(event) {
-// 		$('#mouse-pointer').css({
-// 			'top' : event.pageY + 'px',
-// 			'left' : event.pageX + 'px'
-// 		});
-// 	});
-
-// });
-//$("#divId").css( {position:"absolute", top:event.pageY, left: event.pageX});
-
-/* --------Tracks Mouse Movement on console.log-------- */
-
-// function mouseTracker() {
-// // Trakcs Mouse Movement In Console
-// var mouse = {
-// 	x: undefined,
-// 	y: undefined
-// };
-// window.addEventListener('mousemove', function(event) {
-// 	mouse.x = event.x;
-// 	mouse.y = event.y;
-// 	console.log(mouse);
-// });
-// }
-/* ------------------- 2----------*/
-
+function activateMouseEffects() {
 
 /* --- On Click Event For Mouse Explosion */
 
@@ -420,15 +393,18 @@ let clickEffectsContainer = document.querySelector('.allow-click-effects-contain
 
 clickEffectsContainer.onclick = function() {
 	
-	console.log(event);
+	//console.log(event);
+
 	// Explosion Guts
 	const parent = clickEffectsContainer;
 	let makeChild = document.createElement('span');
 	makeChild.classList.add('explosion_boom');
+		console.log(makeChild);
 		makeChild.style.position = 'absolute';
-		makeChild.style.top = event.pageY + 'px';
-		makeChild.style.left = event.pageX + 'px';
+		makeChild.style.top = event.pageY + 80 + 'px';
+		makeChild.style.left = event.pageX + 'px'; 
 	const result = parent.appendChild(makeChild);
+
 
 
 		// Bomb Hole Guts
@@ -436,7 +412,12 @@ clickEffectsContainer.onclick = function() {
 		const parent2 = bombs[bombs.length - 1];
 		let makeChild2 = document.createElement('span');
 		makeChild2.classList.add('explosion');
+		parent2.style.top = (parent2.offsetTop - 90) + 'px'; 
+		 
+var x = setTimeout( function() { 
 		parent2.appendChild(makeChild2);
+}, 120);
+
 	
 };
 
@@ -454,6 +435,6 @@ clickEffectsContainer.onmouseup = function() {
 		emojiContainer.classList.remove('touched');
 };
 
-
+}
 
 
