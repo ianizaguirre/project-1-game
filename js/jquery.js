@@ -14,7 +14,7 @@ hideMainButtonRow_JQ();
 /* Hide Permanently Game History Last Move Recap - 
   its only for you to use when debugging */
 
-  $(".not-for-user").hide();
+                                              //$(".not-for-user").hide(); WRONG CLASS
 
 /*---------------------
 --------------------- */

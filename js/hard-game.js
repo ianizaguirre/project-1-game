@@ -15,6 +15,20 @@ let countHits = 0;
 
 /* --------------
 ---------------- */
+
+function changeMouseCursor_JQ() {
+// Change Mouse Cursor
+$(document).on('mousemove', function(e){
+    $('.emoji-cursor').css({
+       left:  e.pageX,
+       top:   e.pageY
+    });
+});
+    $("#change-cursor-container").css( "cursor", "pointer" ); 
+}
+
+/* --------------
+---------------- */
 function startHardGameMode() {
 	$(".start-game").hide(1000);
 	countdownVisual();
@@ -78,16 +92,7 @@ function bombDiamonds() {
 /* --------------
 ---------------- */
 
-function changeMouseCursor_JQ() {
-// Change Mouse Cursor
-$(document).on('mousemove', function(e){
-    $('.emoji-cursor').css({
-       left:  e.pageX,
-       top:   e.pageY
-    });
-});
-    $("#change-cursor-container").css( "cursor", "pointer" ); 
-}
+
 
 
 /* --------------
