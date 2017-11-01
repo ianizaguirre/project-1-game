@@ -13,8 +13,8 @@ let playerLiveSelection = document.getElementById('player-live-selection');
 // Assignments --- Type: Counter
 // ONLY FOR CONSOLE LOG Purpose and checking if you lost
 // Tracks Minimum List Length needed for Program to Run Correctly -Starting at: 14 items 
-let currentListLength = document.getElementsByTagName('li').length;
 
+let currentListLength = document.querySelectorAll('.game-list li').length;
 
 // Assignments --- Button -- Group 1
 const addGemBtn = document.querySelector('button.add-gem');
@@ -68,12 +68,33 @@ function countdownVisual() {
 
 		liveTextArea.textContent = countDown;
 
-	}, 1000);
+	}, 1000); // End Interval
 
 
 }
 
+let secondsUpperLimit = 700;
+function resetTurnTimer() {
+	 secondsUpperLimit = 700;
+	return secondsUpperLimit;
+}
+// --------- Player Turn Count Down Function
+function turnTimer() {
+	const turnCountdown = document.querySelector('.digit');
 
+	var x = setInterval( function() { // Interval Start
+			secondsUpperLimit--;
+
+			if ( secondsUpperLimit <= 0) {
+				clearInterval(x);
+			}
+
+			turnCountdown.textContent = secondsUpperLimit;
+			
+			ifGameLost(); // Check if Player Ran Out of time and Lost
+	}, 1000); // End Interval
+
+} // End Function
 
 
 
@@ -91,11 +112,18 @@ function countdownVisual() {
 	------ ------ */
 	startGameBtn.addEventListener( 'click', () => {
 
-		showLoader();
 		countdownVisual();
 
 
-		
+
+		var x = setTimeout( function() {     // TimeOut is tied to  interval in countdown function
+		showPrimaryGame_HideLeaders_JQ();
+		showLoader();
+		showMainButtonRow_JQ();
+		showPlayerGameTimer_JQ();
+		turnTimer();
+
+
 			function startGameBlock() {
 
 				thenHideLoader();
@@ -137,6 +165,7 @@ function countdownVisual() {
 
 			imitateThinking( startGameBlock );
 
+			}, 4000); // End Interval
 	}, false );
 
 
@@ -154,7 +183,7 @@ function countdownVisual() {
 				// Button Guts
 				let ol = document.getElementsByTagName('ol')[0];
 				let li = document.createElement('li');
-				li.innerHTML = '<span>Gem</span>';
+				li.innerHTML = '<span><i class="fa fa-gem"></i></span>';
 				ol.appendChild(li);
 
 					// Current List Length
@@ -236,6 +265,9 @@ function countdownVisual() {
 		=> and Activate Computer Opponents Turn
 	------ ------ */
 	endTurnBtn.addEventListener( 'click', () => {
+														
+		resetTurnTimer();
+
 
 		// Ai --- Algorithm
 		const aiCounter = 4 - (- count);
@@ -334,9 +366,94 @@ function updateHumanTurnPlace() {
 
 function ifGameLost() {
 	if ( currentListLength === 0 ) {
-		window.alert("You Removed The Gavel! ... YOU LOST");
+		 currentListLength = -1;
+		return window.alert("Bro ... YOU LOST");
+	}
+	if ( secondsUpperLimit === 0 ) { // Checks if Player has run out of time
+		
+		var x = setTimeout( function() {
+		return	window.alert("Bro ... YOU Ran Out Of Time");
+		}, 1000); // End Delay
 	}
 }
+
+
+
+
+
+
+
+/* ----------- Idea that helped me figure out event.page X and Y */
+// $(function (){
+
+// 	$(window).mousemove(function(event) {
+// 		$('#mouse-pointer').css({
+// 			'top' : event.pageY + 'px',
+// 			'left' : event.pageX + 'px'
+// 		});
+// 	});
+
+// });
+//$("#divId").css( {position:"absolute", top:event.pageY, left: event.pageX});
+
+/* --------Tracks Mouse Movement on console.log-------- */
+
+// function mouseTracker() {
+// // Trakcs Mouse Movement In Console
+// var mouse = {
+// 	x: undefined,
+// 	y: undefined
+// };
+// window.addEventListener('mousemove', function(event) {
+// 	mouse.x = event.x;
+// 	mouse.y = event.y;
+// 	console.log(mouse);
+// });
+// }
+/* ------------------- 2----------*/
+
+
+/* --- On Click Event For Mouse Explosion */
+
+
+let clickEffectsContainer = document.querySelector('.allow-click-effects-container');
+
+clickEffectsContainer.onclick = function() {
+	
+	console.log(event);
+	// Explosion Guts
+	const parent = clickEffectsContainer;
+	let makeChild = document.createElement('span');
+	makeChild.classList.add('explosion_boom');
+		makeChild.style.position = 'absolute';
+		makeChild.style.top = event.pageY + 'px';
+		makeChild.style.left = event.pageX + 'px';
+	const result = parent.appendChild(makeChild);
+
+
+		// Bomb Hole Guts
+		const bombs = document.querySelectorAll('.explosion_boom');
+		const parent2 = bombs[bombs.length - 1];
+		let makeChild2 = document.createElement('span');
+		makeChild2.classList.add('explosion');
+		parent2.appendChild(makeChild2);
+	
+};
+
+clickEffectsContainer.onmousedown = function() {
+	// Once Mouse Click is kept Pressed
+	//Adds click down effect to the static emoji div
+	const emojiContainer = document.querySelector('.emoji--bomb');
+		emojiContainer.classList.add('touched');
+		//var x = setTimeout( function() { emojiContainer.classList.remove('touched'); }, 120);
+};
+clickEffectsContainer.onmouseup = function() {
+	// Once Mouse Click is released
+	//Removes click down effect to the static emoji div
+	const emojiContainer = document.querySelector('.emoji--bomb');
+		emojiContainer.classList.remove('touched');
+};
+
 
 
 

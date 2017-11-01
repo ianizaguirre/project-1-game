@@ -1,7 +1,9 @@
 body {
   width: 100%;
+  height:100%;
+  min-height:100%;
   margin: 0 auto;
-	background-color: #f24b4b;
+	background-color: #6bd6f1;
 	color: #ffffff;
     font-family:  'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 25px;
@@ -10,6 +12,7 @@ body {
 }
 .wrapper {
   width: 100%;
+   height:100%;
   margin: 0 auto;
 }
 .contain-50 {
@@ -107,17 +110,7 @@ h1 {
 }
 
 /* ------- FIX ----- */
-/*.live-text-area {        
-    font-size: 250px;
-    color: #000;
-    position: fixed;
-    top: 50%;
-    width: 100%;
-    bottom: 50%;
-    margin: auto;
-    z-index: 5;
-    font-weight: 700;
-}*/
+
 .live-text-area {        
     display: inline-block;
     position: fixed;
@@ -139,8 +132,9 @@ h1 {
   Zig Zags
  ------ */
 .zig-zag-sep {
-    min-height: 140px;
+    min-height: 90px;
     padding: 32px 0;
+    background-color: #f24b4b;
   }
 .zig-zag-bottom, .zig-zag-top {
       background-color: #6bd6f1;
@@ -221,17 +215,16 @@ h4 {
 
 .primary-game-container {
     justify-content: center;
+    background-color: #f24b4b;
 }
 
-li {
+#list li {
     display: flex;
-    font-size: 32px;
+    font-size: 36px;
     color: #6bd6f1;
 }
-/* li span {
-    display: flex;
-}*/
-.gavel {
+
+#list .gavel {
   color: #13042b;
 }
 
@@ -359,39 +352,157 @@ button.end-turn:hover {
 */
 
 
+/* ------
+ Leaderboard   
+------ */
+.ranking-leaderboard {
+  width: 50%;
+  margin: 0 auto;
+}
+.light-blue-back-leader {
+    background-color: #6bd6f1;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #333;
+    border: 1px solid #eee;
+}
+
+.leader-board-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.leader-list-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leader-board-wrapper h3 {
+    color: #f24b4b;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.leader-board-wrapper li {
+    color: #000;
+    line-height: 1.8;
+    padding-bottom: 7px;
+    padding-top: 20px;
+}
+.score {
+/*  display: inline;
+  float: right;*/
+}
+.lead-number {
+    font-weight: 700;
+    padding-right: 10px;
+}
+
+
+/* ------
+  Game Timer
+------ */
+/*.game-timmer-wrapper {
+    position: fixed;
+    z-index: 5;
+    left: 90%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}*/
+.game-timmer-wrapper {
+    position: fixed;
+    z-index: 5;
+    left: 90%;
+    text-align: center;
+    top: 0;
+    right: 0;
+    width: 90px;
+    bottom: 0;
+    height: 100px;
+    background-color: #5fcf80;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.digit {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    background-color: #5fcf80;
+    color: #13042b;
+    font-size: 65px;
+    line-height: 1.2;
+    width: 200px;
+    height: 200px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.spell-seconds {
+    font-weight: 300;
+    font-size: 12px;
+    color: #333;
+    text-transform: capitalize;
+    letter-spacing: 0.7px;
+    opacity: 0.7;
+}
+
 
 
 /* ------
   Footer
 ------ */
 footer {
-  padding-top: 50px;
-}
-.inner-footer {
-  background-color: #13042b;
+  background-color: #6bd6f1;
+  padding: 10px;
 }
 
 
-
-
-/* ------
+/* ------===================
   Exploading Mouse Click
 ------ */
+
+
+
+/*.emoji--fire {
+    position: absolute;
+}*/
+
+
+
+@-webkit-keyframes sprite {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: -600px;
+    }
+}
+
+@keyframes sprite {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: -600px;
+    }
+}
 .explosion_boom {
     width: 39px;
     height: 75px;
     background-image: url(../images/boom.gif);
     background-size: auto 100%;
     background-repeat: no-repeat;
-    -webkit-animation: sprite 0.8s steps(15) 1;
-    animation: sprite 0.8s steps(15) 1;
+    -webkit-animation: sprite .8s steps(15) 1;
+    animation: sprite .8s steps(15) 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     position: absolute;
     bottom: 0;
     left: -6px;
 }
-.explosion_burn {
+.explosion {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -399,6 +510,85 @@ footer {
     background-size: contain;
     z-index: 2;
 }
+
+
+
+/*------------------Change Mouse Cursor------------======================*/
+#change-cursor-container, .leader-board-wrapper {
+    cursor: pointer;
+    height: 100%;
+}
+#change-cursor-container:hover + .emoji-cursor {
+  display: block;
+}
+.emoji-cursor {
+pointer-events: none;
+position: absolute; 
+display: none;
+}
+.emoji-cursor {
+    font-size: 3.2rem;
+    line-height: 1em;
+    pointer-events: none;
+    -webkit-user-select: none
+}
+
+
+.emoji--bomb {
+    display: none;
+    top: 0;
+    left: 0;
+    margin-left: -15px;
+    margin-top: -22px;
+    z-index: 1111
+}
+
+.emoji--bomb span {
+    transition: -webkit-transform 0.07s ease;
+    transition: transform 0.07s ease;
+    transition: transform 0.07s ease, -webkit-transform 0.07s ease;
+    display: inline-block
+}
+.emoji--bomb:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    bottom: -10px;
+    background: black;
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    width: 70%;
+    height: 8px;
+    border-radius: 100px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+    transition: opacity 0.07s ease, -webkit-transform 0.07s ease;
+    transition: transform 0.07s ease, opacity 0.07s ease;
+    transition: transform 0.07s ease, opacity 0.07s ease, -webkit-transform 0.07s ease;
+    opacity: 0.25;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center
+}
+
+.emoji--bomb.touched span {
+    -webkit-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    transform: translateY(10px)
+}
+
+.emoji--bomb.touched:after {
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    opacity: 0.187;
+}
+/*-----------------------------------======================*/
+
+
+
+
+
+
 
 
 

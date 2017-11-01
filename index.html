@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>First JS Game Project</title>
+	<title>Jewl Thief</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="./css/styles.css">
@@ -37,25 +37,51 @@
 
                                     <div class="live-text-area"></div>
                                     <button class="start-game primary-button">Start New Game</button>
-                                    
-                            </div><!--Live Text Area Wrap -->
 
+                                    <section class="three-main-buttons">
+                                         <div class="center-me">
+                                            <button class="add-gem primary-button">Add Back A Gem</button> 
+                                            <button class="remove-gem primary-button">Remove A Gem</button> 
+                                            <button class="end-turn primary-button">End My Turn</button>
+                                        </div>      
+                                    </section>
+                         
+
+                            </div><!--Live Text Area Wrap -->
                         </div> <!-- Contain-50 -->
+
+                            <section>
+                                <div class="contain-90">
+                                    <div class="game-timmer-wrapper">
+                                        <span class="digit">0</span>
+                                        <div class="spell-seconds">seconds</div>
+                                    </div>
+                                </div> <!-- Contain-90 -->
+                            </section>
+
                    </div> <!-- Light blue back -->  
                 </section><!-- Section END -->
     </div> <!-- Game TOP Wrapper -->
+        
 
 
 
     <div class="wrapper">      
 
             <div class="zig-zag-bottom"></div>
+        <div class="allow-click-effects-container">
+
+            <div id="change-cursor-container">
+                
+
             <div class="zig-zag-sep"></div>
+             
         	<section class="center-me">
-                    <!-- <h2>The Pile:</h2> -->
+                    
                     <div class="primary-game-container flex contain">
+    
                         <div id="list">
-                          <ol class="flex">
+                          <ol class="flex game-list">
                             <li class="gavel"><span> <i class="fa fa-gavel"></i> </span></li>
                             <li><span> <i class="fa fa-gem"></i> </span></li>
                             <li><span> <i class="fa fa-gem"></i> </span></li>
@@ -71,55 +97,81 @@
                             <li><span> <i class="fa fa-gem"></i> </span></li>
                             <li><span> <i class="fa fa-gem"></i> </span></li>
                           </ol>      
-                        </div>
+                        </div> <!-- List -->
+
+                       <section class="ranking-leaderboard">                            
+                            <div class="light-blue-back-leader">
+                                    <div class="leader-board-wrapper">
+                                        <h3>Leaderboard</h3>                                           
+                                        <ol>
+                                            
+                                            <li class="leader-list-container">
+                                                 <h4><span class="lead-number">1</span> Stallion83</h4> <div class="score">2,300</div>
+                                            </li>
+                                            
+
+                                            <li class="leader-list-container">
+                                                <h4><span class="lead-number">2</span> JimmyHova</h4> <div class="score">1,600</div>
+                                            </li>
+
+                                             <li class="leader-list-container">
+                                                <h4><span class="lead-number">3</span> Montrossity</h4> <div class="score">640</div>
+                                            </li>
+                                            <li class="leader-list-container">
+                                                <h4><span class="lead-number">4</span> 2pack</h4> <div class="score">90</div>
+                                            </li>
+
+                                        </ol>
+                                   
+                                    </div><!-- Leader board wrapper -->
+                            </div><!-- light blue back -->                               
+                        </section><!-- Ranking Leaderboard -->
+                                         
+
+
                     </div> <!-- Primary Game Container -->
             </section>
+
                 <div class="zig-zag-sep"></div>
+        </div><!-- Change Cursor Container --> <div class="emoji-cursor emoji--bomb"><span>💣</span></div>
+        </div><!-- Allow Click Effects Container -->
+
                 <div class="zig-zag-top"></div>
             
+    
 
 
-    <div class="dark-blue-back">
-TESTS: <div class="explosion_boom"></div> <div class="explosion_burn"></div>
+
 
            <!--  <section class="player-info-block center-me">
                     <p> Your Current Selection: * <span id="player-live-selection">0</span> Gem</p> 
             </section> -->
-                
+        <div class="light-blue-back">
+                    
+               <section class="not-for-user">
+                    <div id="game-log-wrapper flex">
+                        <h3>Game History</h3>
+                        <h4>Last Moves Recap</h4>
 
-                
-            <section>
-                <div class="center-me">
-                <button class="add-gem primary-button">Add Back A Gem</button> <button class="remove-gem primary-button">Remove A Gem</button> <button class="end-turn primary-button">End My Turn</button>
-                </div>      
-            </section>
+                        <p>Ai Just Removed _ <span id="ai-just-removed-recap">0</span> _ from the pile!</p>
 
+                        <p>Your at Turn # _ <span id="human-current-turn-place">0</span> _. Make Your Move!</p>
+                   
+                            <div id="loader"></div> 
+                    </div>
+                </section>
 
-           <section>
-                <div id="game-log-wrapper flex">
-                    <h3>Game History</h3>
-                    <h4>Last Moves Recap</h4>
+        
+        </div><!-- Light Blue Background -->
+                <footer>
+                </footer>
+   
 
-                    <p>Ai Just Removed _ <span id="ai-just-removed-recap">0</span> _ from the pile!</p>
-
-                    <p>Your at Turn # _ <span id="human-current-turn-place">0</span> _. Make Your Move!</p>
-               
-                        <div id="loader"></div> 
-                </div>
-            </section>
-
-        </div><!-- Dark Blue Background
-
-            <footer>
-               <div class="inner-footer">
-                   <br />
-               </div>
-            </footer>
-       
     </div> <!-- Wrapper -->
     <!-- Font Awesome Scripts -->
     <script defer src="./FontAwesomeJs/packs/solid.js"></script> 
     <script defer src="./FontAwesomeJs/fontawesome.js"></script>
+
     <!-- jQuery Script -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" 
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 

@@ -1,6 +1,23 @@
 
 
+/* ---------------------
+--------------------- */
+// ON PAGE LOAD 
+
 $(".fa-plus-hexagon").hide();
+
+hidePrimaryGame_ShowLeaders_JQ();
+
+hidePlayerGameTimer_JQ();
+
+hideMainButtonRow_JQ();
+/* Hide Permanently Game History Last Move Recap - 
+  its only for you to use when debugging */
+
+  $(".not-for-user").hide();
+
+/*---------------------
+--------------------- */
 
 // Event Handler
 $(".accordion-icon").click( function() {
@@ -42,5 +59,62 @@ function openedAccordionJQ() {
 // }, false );
 
 
+/* ------
+------ Hide primary-game-container and Show it only when User Clicks Start Game 
+------ */
 
+function hidePrimaryGame_ShowLeaders_JQ() {
+      $("#list").hide();
+      $(".ranking-leaderboard").show();
+}
+
+function showPrimaryGame_HideLeaders_JQ() {
+    $("#list").show();
+     $(".ranking-leaderboard").hide();
+}
+
+//showPrimaryGame_HideLeaders_JQ();
+//hidePrimaryGame_ShowLeaders_JQ();
+
+/* ------
+------ Hide Game Time Wrapper
+------ */
+
+function hidePlayerGameTimer_JQ() {
+      $(".game-timmer-wrapper").hide();
+}
+
+function showPlayerGameTimer_JQ() {
+    $(".game-timmer-wrapper").fadeIn(1500);
+}
+
+//hidePlayerGameTimer_JQ();
+//showPlayerGameTimer_JQ();
+
+/* ------
+------  Main 3 Buttons = Add, Remove, End
+------ */
+
+function hideMainButtonRow_JQ() {
+      $(".three-main-buttons").hide();
+}
+
+function showMainButtonRow_JQ() {
+   $(".start-game").hide();
+    $(".three-main-buttons").fadeIn(1500);
+}
+
+//hideMainButtonRow_JQ();
+//showMainButtonRow_JQ();
+
+
+
+/* ------------ */
+// Change Mouse Cursor
+$(document).on('mousemove', function(e){
+    $('.emoji-cursor').css({
+       left:  e.pageX,
+       top:   e.pageY
+    });
+});
 
