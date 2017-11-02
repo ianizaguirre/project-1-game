@@ -59,6 +59,8 @@ function startTurnCheck() {
 
 	bombsPerTurn();
 
+	hitThreeLimit();
+
 }
 
 
@@ -75,6 +77,8 @@ function bombsPerTurn() {
 		console.log('bombsPerTurn - ELSE ' + countHits); // ADD THAT START AI STARTS AND YOU HAVE TO WAIT TILL HIS MOVE TO RESUME
 	}
 		console.log('bombsPerTurn - Funk End ' + countHits);
+
+
 }
 
 
@@ -82,18 +86,109 @@ function bombsPerTurn() {
 ---------------- */
 
 function bombDiamonds() {
-	$("li").click( function(e) { 				
-			$(this).remove(); // Remove Gem
-			countHits--;      // Log Removal
-			startTurnCheck();	// Check if Removal is within allowed limit 
-			
-			//console.log('bombDiamonds - Funk Start AND End ' + countHits);
+	$("li").click( function(e) { 	
+
+		$(this).remove(); // Remove Gem
+		countHits--;      // Log Removal
+		startTurnCheck();	// Check if Removal is within allowed limit 
+		
+		//console.log('bombDiamonds - Funk Start AND End ' + countHits);
+
+			currentListLength--;
+			console.log( 'Current List Length: ' + currentListLength );
 	});	
 }
 
 
 /* --------------
 ---------------- */
+
+function hitThreeLimit() {
+
+	if ( countHits === -3 ) {
+		console.log('NEGATIVE THREE !!!!!!!!!!!!!!!!!!!!!!!');
+		resetTurnTimer();
+
+		aiProgram();
+
+			countHits = 0; // Reset Count Hits - allows this if statement to run again
+	}
+
+}
+
+
+/* --------------
+---------------- */
+
+
+
+// -------------------------- AI PROGRAM --------------------------
+
+
+function aiProgram() {
+	const aiCounter = 4 - (- countHits);
+
+
+
+	function endTurnBlock() {
+
+		for ( let i = 1; i <= aiCounter; i++ ) {
+
+			// Button Guts
+			let ol = document.getElementsByTagName('ol')[0];
+			let li = document.querySelector('li:last-child');
+			ol.removeChild(li);
+			
+			// Current List Length
+			currentListLength--;
+		}
+
+		// AI "Just Removed" Recap
+		aiJustRemovedCount = aiCounter;
+		aiJustRemovedRecap.textContent = aiJustRemovedCount;
+
+	} //  END of endTurnBlock()
+
+
+		/*---------------------------------------------------------------*/
+			if ( aiCounter === 1 || aiCounter === 2 || aiCounter === 3 ) {
+				
+				// If we "End Turn" then allow to "Remove A Gem"
+				rmvGemBtn.disabled = false;
+				// Disable "Add A Gem" since we reset Count to Zero
+				addGemBtn.disabled = true;
+	
+				imitateThinking( endTurnBlock );
+
+						endTurnBtn.disabled = true;
+
+			} 	else {
+				endTurnBtn.disabled = true;
+			}
+					
+
+		showLoader();
+		imitateThinking( thenHideLoader );
+		ifGameLost();
+
+} // End of Entire aiProgram()
+
+
+														
+
+/* END OF AI ---------------------------------*/
+
+
+
+
+
+
+$(document).keypress(function(e) {
+  if(e.which === 13) {
+     console.log('RUN RUN RUN22222');
+  }
+});
+
 
 
 
@@ -102,16 +197,14 @@ function bombDiamonds() {
 ---------------------- Run Program 
 -------------- */
 
-
-
-
-
-
-
-
 $("button.hard-game").click( function() { // BODY HARD GAME WRAPPER START
+
+console.log( currentListLength );
+
 startHardGameMode();
 bombDiamonds();
+
+
 
 
 

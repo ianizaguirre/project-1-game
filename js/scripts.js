@@ -97,47 +97,57 @@ function turnTimer() {
 
 } // End Function
 
+/* -------------------------
+---------------------------*/	
+
 // ----- Start Game Block Function that is called inside Start Game Event Listener
 
-			function startGameBlock() {
+function startGameBlock() {
 
-				thenHideLoader();
+	thenHideLoader();
 
-				// AI "Just Removed" Recap
-				aiJustRemovedCount++;
-					aiJustRemovedRecap.textContent = aiJustRemovedCount;
+	// AI "Just Removed" Recap
+	aiJustRemovedCount++;
+	aiJustRemovedRecap.textContent = aiJustRemovedCount;
 
-		/* updateHumanTurnPlace(); // Feature Not being used right now */
+	/* updateHumanTurnPlace(); // Feature Not being used right now */
 
-				// Current Game Status - This Acts Like A "Switch"
-				let readyToPlayNewGame = "Yes Start New Game";
+	// Current Game Status - This Acts Like A "Switch"
+	let readyToPlayNewGame = "Yes Start New Game";
 
-					if ( readyToPlayNewGame === "Yes Start New Game" ) {
-						
-						console.log( "Ready To Play New Game" + "? " + readyToPlayNewGame );
+	if ( readyToPlayNewGame === "Yes Start New Game" ) {
 
-						// Button Guts
-						let ol = document.getElementsByTagName('ol')[0];
-						let li = document.querySelector('li:last-child');
-						ol.removeChild(li);
+		console.log( "Ready To Play New Game" + "? " + readyToPlayNewGame );
 
-							// Current List Length
-							currentListLength--;
-								console.log( "startGameBtn " + "List Length " + currentListLength );
-								console.log( "startGameBtn " + "Count " + count );
+		// Button Guts
+		let ol = document.getElementsByTagName('ol')[0];
+		let li = document.querySelector('li:last-child');
+		ol.removeChild(li);
 
-						// Current Game Status - This Acts Like A "Switch"
-						readyToPlayNewGame = "No - Currently Playing A Game";
+		// Current List Length
+		currentListLength--;
+		console.log( "startGameBtn " + "List Length " + currentListLength );
+		console.log( "startGameBtn " + "Count " + count );
 
-							// Disable Buttons Cascade
-							startGameBtn.disabled = true;
-							addGemBtn.disabled = true;
-							endTurnBtn.disabled = true;
-					} 	else {
-						console.log( "Ready To Play New Game" + "? " + readyToPlayNewGame );
-					}
-			} 
-// END Function
+		// Current Game Status - This Acts Like A "Switch"
+		readyToPlayNewGame = "No - Currently Playing A Game";
+
+		// Disable Buttons Cascade
+		startGameBtn.disabled = true;
+		addGemBtn.disabled = true;
+		endTurnBtn.disabled = true;
+	} 	
+	else {
+		console.log( "Ready To Play New Game" + "? " + readyToPlayNewGame );
+	}
+
+} // END Function
+
+
+/* -------------------------
+---------------------------*/			
+
+
 
 
 // -------------------------------------- ACTION BELOW ------------
@@ -272,12 +282,35 @@ function turnTimer() {
 		=> and Activate Computer Opponents Turn
 	------ ------ */
 	endTurnBtn.addEventListener( 'click', () => {
+
 														
 		resetTurnTimer();
-
-
-		// Ai --- Algorithm
 		const aiCounter = 4 - (- count);
+
+	function endTurnBlock() {
+
+
+
+		for ( let i = 1; i <= aiCounter; i++ ) {
+
+			// Button Guts
+			let ol = document.getElementsByTagName('ol')[0];
+			let li = document.querySelector('li:last-child');
+			ol.removeChild(li);
+			
+			// Current List Length
+			currentListLength--;
+					console.log( "endTurnBtn " + "List Length " + currentListLength );
+					console.log( "endTurnBtn " + "Count " + "In Loop " + count );
+		}
+
+		// AI "Just Removed" Recap
+		aiJustRemovedCount = aiCounter;
+		aiJustRemovedRecap.textContent = aiJustRemovedCount;
+
+		// updateHumanTurnPlace();
+
+	} //  END of Function
 
 			if ( aiCounter === 1 || aiCounter === 2 || aiCounter === 3 ) {
 				
@@ -287,28 +320,7 @@ function turnTimer() {
 				addGemBtn.disabled = true;
 	
 					
- 					function endTurnBlock() {
 
-						for ( let i = 1; i <= aiCounter; i++ ) {
-					
-							// Button Guts
-							let ol = document.getElementsByTagName('ol')[0];
-							let li = document.querySelector('li:last-child');
-							ol.removeChild(li);
-								
-								// Current List Length
-								currentListLength--;
-		      						console.log( "endTurnBtn " + "List Length " + currentListLength );
-		      						console.log( "endTurnBtn " + "Count " + "In Loop " + count );
-						}
-
-							// AI "Just Removed" Recap
-							aiJustRemovedCount = aiCounter;
-							aiJustRemovedRecap.textContent = aiJustRemovedCount;
-
-							// updateHumanTurnPlace();
-					
-					} 						// !!! END of Function
 
 					imitateThinking( endTurnBlock );
 
