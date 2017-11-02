@@ -133,7 +133,7 @@ function turnTimer() {
 				aiJustRemovedCount++;
 					aiJustRemovedRecap.textContent = aiJustRemovedCount;
 
-				updateHumanTurnPlace();
+		updateHumanTurnPlace();
 
 				// Current Game Status - This Acts Like A "Switch"
 				let readyToPlayNewGame = "Yes Start New Game";
