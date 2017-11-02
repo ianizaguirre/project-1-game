@@ -31,7 +31,8 @@ const endTurnBtn = document.querySelector('button.end-turn');
 // ------ Assignments --- Group 2
 
 // Loader Animation Control
-let loader = document.getElementById('loader');
+let loader = document.getElementById('loader'); // Loader Bars Animation circle outline
+let circleWrapper = document.querySelector('.circle-wrapper'); // Circle inside loader bars
 
 // AI "Just Removed" Recap
 let aiJustRemovedRecap = document.getElementById('ai-just-removed-recap');
@@ -96,34 +97,7 @@ function turnTimer() {
 
 } // End Function
 
-
-
-
-// -------------------------------------- ACTION BELOW ------------
-
-// Clicking the START GAME Button will 
-// --ONLY-- launch The AI Programs --FIRST MOVE-- 
-// That is pre-set in its Alogrithm
-
-
-/* ------ ------
-	BUTTON Action 
-	=> Start Game 
-	------ ------ */
-	startGameBtn.addEventListener( 'click', () => {
-
-		countdownVisual();
-
-
-
-		var x = setTimeout( function() {     // TimeOut is tied to  interval in countdown function
-		showPrimaryGame_HideLeaders_JQ();
-		showLoader();
-		showMainButtonRow_JQ();
-		showPlayerGameTimer_JQ();
-		turnTimer();
-
-
+// ----- Start Game Block Function that is called inside Start Game Event Listener
 
 			function startGameBlock() {
 
@@ -133,7 +107,7 @@ function turnTimer() {
 				aiJustRemovedCount++;
 					aiJustRemovedRecap.textContent = aiJustRemovedCount;
 
-		updateHumanTurnPlace();
+		/* updateHumanTurnPlace(); // Feature Not being used right now */
 
 				// Current Game Status - This Acts Like A "Switch"
 				let readyToPlayNewGame = "Yes Start New Game";
@@ -163,10 +137,42 @@ function turnTimer() {
 						console.log( "Ready To Play New Game" + "? " + readyToPlayNewGame );
 					}
 			} 
+// END Function
 
-			imitateThinking( startGameBlock );
 
-			}, 4000); // End Interval
+// -------------------------------------- ACTION BELOW ------------
+
+// Clicking the START GAME Button will 
+// --ONLY-- launch The AI Programs --FIRST MOVE-- 
+// That is pre-set in its Alogrithm
+
+
+/* ------ ------
+	BUTTON Action 
+	=> Start Game 
+	------ ------ */
+	startGameBtn.addEventListener( 'click', () => {
+
+		countdownVisual();
+
+
+
+		var x = setTimeout( function() {     // TimeOut is tied to  interval in countdown function
+			showPrimaryGame_HideLeaders_JQ();
+			showLoader();
+			showMainButtonRow_JQ();
+			showPlayerGameTimer_JQ();
+			turnTimer();
+
+
+				let x = setTimeout( function() { 
+					startGameBlock();
+					imitateThinking( startGameBlock );
+				}, 500);
+
+			
+
+		}, 4000); // End Interval
 	}, false );
 
 
@@ -282,6 +288,7 @@ function turnTimer() {
 	
 					
  					function endTurnBlock() {
+
 						for ( let i = 1; i <= aiCounter; i++ ) {
 					
 							// Button Guts
@@ -299,7 +306,7 @@ function turnTimer() {
 							aiJustRemovedCount = aiCounter;
 							aiJustRemovedRecap.textContent = aiJustRemovedCount;
 
-							updateHumanTurnPlace();
+							// updateHumanTurnPlace();
 					
 					} 						// !!! END of Function
 
@@ -347,22 +354,31 @@ function imitateThinking(onSomething) {
 
 
 function showLoader() {
+	aiJustRemovedRecap.textContent = "...";
 	// Loader Animation Control
 	loader.style.display = 'block';
+	circleWrapper.style.display = 'block';
 }
 
 function thenHideLoader() {
 	// Loader Animation Control
+
+	var x = setTimeout( function() {
+
 	loader.style.display = 'none';
+	circleWrapper.style.display = 'none';
+
+}, 800);
+
 }
 
-
+/* Not being used right now
 function updateHumanTurnPlace() {
 	// Human "Your" Turn Number Recap
 	humanTurnCount++;
 	humanTurnPlace.textContent = humanTurnCount;
 }
-
+*/
 
 
 function ifGameLost() {

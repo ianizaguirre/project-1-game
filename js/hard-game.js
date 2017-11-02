@@ -1,4 +1,4 @@
-$("button.hard-game").click( function() { // BODY WRAPPER START
+
 
 /* ---------
 	Global Declarations 
@@ -42,7 +42,10 @@ function startHardGameMode() {
 		showPlayerGameTimer_JQ();
 		turnTimer();
 	
-	imitateThinking( startGameBlock );
+				let x = setTimeout( function() { 
+					startGameBlock();
+					imitateThinking( startGameBlock );
+				}, 300);
 
 	}, 4000); // End Interval
 }
@@ -99,16 +102,16 @@ function bombDiamonds() {
 ---------------------- Run Program 
 -------------- */
 
+
+
+
+
+
+
+
+$("button.hard-game").click( function() { // BODY HARD GAME WRAPPER START
 startHardGameMode();
 bombDiamonds();
-
-
-
-
-
-
-
-
 
 
 

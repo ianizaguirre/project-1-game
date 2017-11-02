@@ -314,34 +314,7 @@ button.end-turn:hover {
 	text-align: center;
 }
 
-/* --------- 
-  Loader Animation 
- ---------- */
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Center the loader */
-#loader {
-     display: none; 
-    position: fixed;
-    left: 0%;
-    top: 25%;
-    bottom: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 350px;
-    height: 350px;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-/* --- --- END --- --- */
 
 
 /*
@@ -578,30 +551,64 @@ display: none;
 /*-----------------------------------======================*/
 
 .circle-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
+     display: none; 
+    position: fixed;
+    left: 0%;
+    top: 26%;
+    bottom: 0;
+    right: 0;
     margin: 0 auto;
 }
 .circle {
-    width: 130px;
-    height: 130px;
+    width: 360px;
+    height: 360px;
+    margin: 0 auto;
     border-radius: 50%;
-    font-size: 16px;
-    color: #fff;
     justify-content: center;
     flex-direction: column;
-    line-height: 30px;
     text-align: center;
     display: inline-flex;
     vertical-align: middle;
-    background: #13042b;
+    background: rgba(0, 0, 0, 0.5);
+}
+.cirlce-title {
+    font-size: 30px;
+    color: #fff;
+    line-height: 88px;
+    font-family: 'Montserrat', sans-serif;
 }
 #ai-just-removed-recap, #human-current-turn-place {
     font-weight: 700;
-    font-size: 26px;
+    font-size: 60px;
+}
+/* --------- 
+  Loader Animation 
+ ---------- */
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
+/* Center the loader */
+#loader {
+     display: none; 
+    position: fixed;
+    left: 0%;
+    top: 25%;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 350px;
+    height: 350px;
+    border: 16px solid #54B9C6;
+    border-radius: 50%;
+    border-top: 16px solid #FFFE55;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+/* --- --- END --- --- */
 
 
 
