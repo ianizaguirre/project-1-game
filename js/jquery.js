@@ -114,20 +114,118 @@ function showMainButtonRow_JQ() {
 
 
 
+/* ------------------------
+------------- Pretty Alerts , made into functions for better code readability 
+------------------------- */
+
+// Function 1
+function youLostAlert() {
+
+  $.confirm({
+      title: 'Game Over!',
+      content: 'You picked the Gavel !',
+      type: 'red',
+      typeAnimated: true,
+          boxWidth: '30%',
+        useBootstrap: false,
+      buttons: {
+          tryAgain: {
+              text: 'Try again',
+              btnClass: 'btn-red',
+              action: function(){
+                  location.reload(false);
+              }
+          },
+
+      }
+  });
+
+} // End of youLostAlert Funtion
 
 
 
+// Function 2
+function youRanOutOfTimeAlert() {
+
+  $.confirm({
+      title: 'Game Over!',
+      content: 'You Ran Out Of Time !',
+      type: 'dark',
+      typeAnimated: true,
+          boxWidth: '30%',
+        useBootstrap: false,
+    animation: 'news',
+    closeAnimation: 'news',
+      
+      buttons: {
+          tryAgain: {
+              text: 'Try again',
+              btnClass: 'btn-red',
+              action: function(){
+                  location.reload(false);
+              }
+          },
+
+      }
+  });
+
+} // End of youRanOutOfTimeAlert Funtion
 
 
+// Function 3
+function youMustRemoveaGem() {
 
+  $.confirm({
+      title: 'Hurry!',
+      content: 'You Cant End Your Turn Yet... Remove a gem first!',
+      type: 'red',
+      typeAnimated: true,
+          boxWidth: '30%',
+        useBootstrap: false,
+    animation: 'news',
+    closeAnimation: 'news',
+    closeIcon: true,
+      
+      buttons: {
+          tryAgain: {
+              text: 'Back To Game',
+              btnClass: 'btn-red',
+              action: function(){
+                  
+              }
+          },
 
+      }
+  });
 
+} // End of youRanOutOfTimeAlert Funtion
 
+// Function 4
+function youWonTheGame() {
 
+  $.confirm({
+      title: 'You Won!',
+      content: 'Congratulations !',
+      type: 'green',
+      typeAnimated: true,
+          boxWidth: '30%',
+        useBootstrap: false,
+    animation: 'news',
+    closeAnimation: 'news',
+      
+      buttons: {
+          tryAgain: {
+              text: 'THANK YOU',
+              btnClass: 'btn-green',
+              action: function(){
+                  location.reload(false);
+              }
+          },
 
+      }
+  });
 
-
-
+} // End of youRanOutOfTimeAlert Funtion
 
 
 

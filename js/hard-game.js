@@ -129,8 +129,9 @@ function hitThreeLimit() {
 function aiProgram() {
 	console.log('ENTER AI');
 
-	const aiCounter = 4 - (- countHits);
+	const aiCounter = 4 - (- countHits); // HARD GAME IS ALWAYS SET SO AI WINS
 
+	console.log(aiCounter, 'Running in AIProgram');
 
 	function endTurnBlock() {
 
@@ -210,14 +211,25 @@ bombDiamonds();
 
 // Restricts Key Press Event to Hard Game Mode Only
 $(document).keypress(function(e) {
-  if(e.which === 13) {
-     console.log('RUN RUN RUN22222!!!!!!!!');
-     resetTurnTimer();
+	  if(e.which === 13 && countHits < 0 && countHits >= -3 ) { // Count hits here prevents keypress when user yet removed no li
+		  	
+		  	console.log( 'Count Hits inside keypress ' + countHits );
+		    console.log('RUN RUN RUN22222!!!!!!!!');
 
-     aiProgram();
-     countHits = 0; // Reset Count Hits - allows this if statement to run again
-     console.log('RUN RUN RUN3333333!!!!!!!!');
-  }
-});
+		     resetTurnTimer();
+
+		     aiProgram();
+		     	countHits = 0; // Reset Count Hits - allows this if statement to run again
+
+		     console.log('RUN RUN RUN3333333!!!!!!!!');
+
+	  } 
+	  else {	
+			// You Have Too Remove A Gem Message
+			youMustRemoveaGem();
+
+	  } // End Else
+
+}); // End KeyPress Function
 
 }); // BODY Wrapper END

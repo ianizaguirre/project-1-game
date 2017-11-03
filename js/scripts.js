@@ -36,11 +36,11 @@ let circleWrapper = document.querySelector('.circle-wrapper'); // Circle inside 
 
 // AI "Just Removed" Recap
 let aiJustRemovedRecap = document.getElementById('ai-just-removed-recap');
-	let aiJustRemovedCount = 0;
+let aiJustRemovedCount = 0;
 
 // Human "Your" Turn Number Recap
 let humanTurnPlace = document.getElementById('human-current-turn-place');
-	let humanTurnCount = 0;
+let humanTurnCount = 0;
 
 
 
@@ -70,13 +70,11 @@ function countdownVisual() {
 		liveTextArea.textContent = countDown;
 
 	}, 1000); // End Interval
-
-
 }
 
-let secondsUpperLimit = 700;
+let secondsUpperLimit = 80;
 function resetTurnTimer() {
-	 secondsUpperLimit = 700;
+	secondsUpperLimit = 80;
 	return secondsUpperLimit;
 }
 // --------- Player Turn Count Down Function
@@ -136,8 +134,7 @@ function startGameBlock() {
 		startGameBtn.disabled = true;
 		addGemBtn.disabled = true;
 		endTurnBtn.disabled = true;
-	} 	
-	else {
+	} else {
 		console.log( "Ready To Play New Game" + "? " + readyToPlayNewGame );
 	}
 
@@ -161,68 +158,60 @@ function startGameBlock() {
 	BUTTON Action 
 	=> Start Game 
 	------ ------ */
-	startGameBtn.addEventListener( 'click', () => {
-
+startGameBtn.addEventListener( 'click', () => {
 		countdownVisual();
 
-
-
-		var x = setTimeout( function() {     // TimeOut is tied to  interval in countdown function
+		// TimeOut is tied to  interval in countdown function
+		setTimeout( function gameBoard() {     
 			showPrimaryGame_HideLeaders_JQ();
 			showLoader();
 			showMainButtonRow_JQ();
 			showPlayerGameTimer_JQ();
 			turnTimer();
 
-
-				let x = setTimeout( function() { 
-						//startGameBlock(); // Commented this out - it makes start game run twice
-					imitateThinking( startGameBlock );
-				}, 500);
-
-			
+			setTimeout( function runAi() { 
+				//startGameBlock(); // Commented this out - it makes start game run twice
+				imitateThinking( startGameBlock );
+			}, 500);
 
 		}, 4000); // End Interval
 	}, false );
-
-
 /* ------ ------
 	BUTTON Action 
 	=> Add Gem
 	------ ------ */
-	addGemBtn.addEventListener( 'click', () => {
-          							
-		if ( count === -1 || count === -2 || count === -3 ) {
+addGemBtn.addEventListener( 'click', () => {
+	if ( count === -1 || count === -2 || count === -3 ) {
 
-			// If we "Add A Gem" then allow to "Remove A Gem"
-			rmvGemBtn.disabled = false;
- 
-				// Button Guts
-				let ol = document.getElementsByTagName('ol')[0];
-				let li = document.createElement('li');
-				li.innerHTML = '<span><i class="fa fa-gem"></i></span>';
-				ol.appendChild(li);
+		// If we "Add A Gem" then allow to "Remove A Gem"
+		rmvGemBtn.disabled = false;
 
-					// Current List Length
-					currentListLength++;
-	      				console.log( "addGemBtn " + "List Length " + currentListLength );
+		// Button Guts
+		let ol = document.getElementsByTagName('ol')[0];
+		let li = document.createElement('li');
+		li.innerHTML = '<span><i class="fa fa-gem"></i></span>';
+		ol.appendChild(li);
 
-					// Player Live Selection Counter
-					count++;
-						playerLiveSelection.textContent = count;
-						console.log( "addGemBtn " + "Count " + count );
-		} 	else {		
-			addGemBtn.disabled = true;
-				console.log( "addGemBtn " + "List Length " + currentListLength );
-				console.log( "addGemBtn " + "Count " + count );
-		}
+		// Current List Length
+		currentListLength++;
+		console.log( "addGemBtn " + "List Length " + currentListLength );
 
-			if ( count === 0 ) {
-				addGemBtn.disabled = true;
-				endTurnBtn.disabled = true;
-			}
+		// Player Live Selection Counter
+		count++;
+		playerLiveSelection.textContent = count;
+		console.log( "addGemBtn " + "Count " + count );
+	} else {		
+		addGemBtn.disabled = true;
+		console.log( "addGemBtn " + "List Length " + currentListLength );
+		console.log( "addGemBtn " + "Count " + count );
+	}
 
-	}, false );
+	if ( count === 0 ) {
+		addGemBtn.disabled = true;
+		endTurnBtn.disabled = true;
+	}
+
+}, false );
 
 
 /* ------ ------
@@ -285,10 +274,9 @@ function startGameBlock() {
 
 														
 		resetTurnTimer();
-		const aiCounter = 4 - (- count);
+		const aiCounter = aiAlgorithm();
 
 	function endTurnBlock() {
-
 
 
 		for ( let i = 1; i <= aiCounter; i++ ) {
@@ -396,21 +384,90 @@ function updateHumanTurnPlace() {
 function ifGameLost() {
 	if ( currentListLength === 1 ) {
 		
-		return window.alert("Bro ... YOU LOST");
+		youLostAlert();
+		currentListLength = -100; // Breaks out of infinite Alert Prompt
+		$(".game-timmer-wrapper").hide(1000); // Hide Countdown which prevents activating "out of time" If statment
 	}
 	if ( secondsUpperLimit === 0 ) { // Checks if Player has run out of time
 		
 		var x = setTimeout( function() {
-		return	window.alert("Bro ... YOU Ran Out Of Time");
+		youRanOutOfTimeAlert();
 		}, 1000); // End Delay
 	}
 }
 
+/*
+
+function ifGameWon() { // This Has Not Been Added Yet to the program
+	youWonTheGame();
+}
+
+*/
+
+/*---------------------
+--------------------- */
+
+
+/* ---------- Ai Algorithm */
+
+function aiAlgorithm() {
+		let result = 0;
+
+ 		const isRandom = checkIfAlgorithmsHard();
+		console.log('aiAlgorithm count', count);
+
+		if ( isRandom === true ) { // Ai Move is perfect
+			 result =  4 - (- count); // const aiCounter = 4 - (- count);
+			 console.log( 'Result TRUE (isRandom) -- Ai Move is perfect ' + result );
+		} // END IF
+
+		if ( isRandom === false ) { // Ai Move is not perfect
+			/* ----- Make it Possible  User Can Win ---- */
+			 let wrongNumber = Math.floor( ( Math.random() * 4 ) + 1 ); // Produce Random 1 too 4 Number
+			 result =  wrongNumber - (- count); // const aiCounter = 4 - (- count);
+		 	 console.log( 'Result FALSE (isRandom) -- Ai Move is NOT perfect ' + 'Wrong Number ' + wrongNumber + 'Result Removed ' + result );
+		} // END IF
+
+		if ( result === 0 ) {
+			console.log(' By Chance Ai and User picked the same number - so we prevented Ai removing Zero ');
+			result =  3 - (- count); // pick 3
+			console.log( 'Result then is ' + result, count );
+		} // End  IF
+
+return result;
+} // End Function - aiAlgorithm()
+
+/*---------------------
+--------------------- */
+
+
+function checkIfAlgorithmsHard() {
+	// Produces Chance Ai Algorithm Fails
+	let chanceNumber = Math.floor( ( Math.random() * 10 ) + 1 ); // Produce Random 1 too 10 Number
+
+		let chanceAiMoveisPerfect = false;
+
+		if ( chanceNumber <= 5 && chanceNumber >= 1 ) {  // Create a 1 in 5 chance 
+			chanceAiMoveisPerfect = true;
+		} 
+		console.log( 'Check If Algorithm is HARD ' + chanceNumber + chanceAiMoveisPerfect );
+			return chanceAiMoveisPerfect;
+} // End Function - checkIfAlgorithmsHard()
+
+
+
+/*---------------------
+--------------------- */
 
 
 
 
 
+
+
+
+
+/* ------------------ MOUSE EFFECTS --------------*/
 
 function activateMouseEffects() {
 
