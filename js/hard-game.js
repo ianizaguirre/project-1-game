@@ -43,7 +43,7 @@ function startHardGameMode() {
 		turnTimer();
 	
 				let x = setTimeout( function() { 
-					startGameBlock();
+					// startGameBlock(); // Commented this out - it makes start game run twice
 					imitateThinking( startGameBlock );
 				}, 300);
 
