@@ -423,7 +423,7 @@ function aiAlgorithm() {
 
 		if ( isRandom === false ) { // Ai Move is not perfect
 			/* ----- Make it Possible  User Can Win ---- */
-			 let wrongNumber = Math.floor( ( Math.random() * 4 ) + 1 ); // Produce Random 1 too 4 Number
+			 let wrongNumber = Math.floor( ( Math.random() * 8 ) + 1 ); // Produce Random 1 too 8 Number
 			 result =  wrongNumber - (- count); // const aiCounter = 4 - (- count);
 		 	 console.log( 'Result FALSE (isRandom) -- Ai Move is NOT perfect ' + 'Wrong Number ' + wrongNumber + 'Result Removed ' + result );
 		} // END IF
