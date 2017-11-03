@@ -243,7 +243,7 @@ function startGameBlock() {
 
 					// Button Guts
 					let ol = document.getElementsByTagName('ol')[0];
-					let li = document.querySelector('li:last-child');
+					let li = document.querySelector('li:not(.gavel)');
 					ol.removeChild(li);
 
 						// Current List Length
@@ -394,8 +394,8 @@ function updateHumanTurnPlace() {
 
 
 function ifGameLost() {
-	if ( currentListLength === 0 ) {
-		 currentListLength = -1;
+	if ( currentListLength === 1 ) {
+		
 		return window.alert("Bro ... YOU LOST");
 	}
 	if ( secondsUpperLimit === 0 ) { // Checks if Player has run out of time

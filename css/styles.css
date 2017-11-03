@@ -1,3 +1,4 @@
+
 body {
   width: 100%;
   height:100%;
@@ -49,7 +50,6 @@ h1 {
     font-weight: 700;
     letter-spacing: -1px;
     text-transform: uppercase;
-   /* text-align: center;*/
 }
 
 
@@ -221,7 +221,7 @@ h4 {
 
 #list li {
     display: flex;
-    font-size: 36px;
+    font-size: 42px;
     color: #6bd6f1;
 }
 
@@ -611,9 +611,56 @@ display: none;
 /* --- --- END --- --- */
 
 
+ /*and (max-width: 979px)*/
 
 
+@media (min-width: 1000px)  and (max-width: 1380px) {
 
+.contain-50 {
+  width: 60%;
 
+}
 
+h1 {
+  font-size: 78px;
+  text-align: center;
+}
+h3 {
+  font-size: 29px;
+  line-height: 29px;
+}
+h4 {
+  font-size: 25px;
+  line-height: 37px;
+}
+.score {
+  font-size: 22px;
+}
+.accordion-icon {
+  font-size: 21px;
+}
+.game-rules {
+  font-size: 19px
+}
+.primary-button {
+    font-size: 19px;
+    padding: 18px 18px;
+}
+.zig-zag-sep {
+    min-height: 40px;
+}
+.zig-zag-bottom:after {
+  top: 54px;
+}
+.zig-zag-top:before {
+  bottom: 54px;
+}
+.digit {
+  font-size: 55px;
+}
+#list li {
+    font-size: 36px;
+}
+
+ } /* End Media Query - min 1200px
 

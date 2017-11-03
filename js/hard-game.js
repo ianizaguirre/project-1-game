@@ -86,7 +86,7 @@ function bombsPerTurn() {
 ---------------- */
 
 function bombDiamonds() {
-	$("li").click( function(e) { 	
+	$("li:not(.gavel)").click( function(e) { 	
 
 		$(this).remove(); // Remove Gem
 		countHits--;      // Log Removal
@@ -185,16 +185,7 @@ function aiProgram() {
 
 
 
-$(document).keypress(function(e) {
-  if(e.which === 13) {
-     console.log('RUN RUN RUN22222!!!!!!!!');
-     resetTurnTimer();
 
-     aiProgram();
-     countHits = 0; // Reset Count Hits - allows this if statement to run again
-     console.log('RUN RUN RUN3333333!!!!!!!!');
-  }
-});
 
 
 
@@ -214,5 +205,19 @@ bombDiamonds();
 
 
 
+
+
+
+// Restricts Key Press Event to Hard Game Mode Only
+$(document).keypress(function(e) {
+  if(e.which === 13) {
+     console.log('RUN RUN RUN22222!!!!!!!!');
+     resetTurnTimer();
+
+     aiProgram();
+     countHits = 0; // Reset Count Hits - allows this if statement to run again
+     console.log('RUN RUN RUN3333333!!!!!!!!');
+  }
+});
 
 }); // BODY Wrapper END
