@@ -447,7 +447,7 @@ function checkIfAlgorithmsHard() {
 
 		let chanceAiMoveisPerfect = false;
 
-		if ( chanceNumber <= 5 && chanceNumber >= 1 ) {  // Create a 1 in 5 chance 
+		if ( chanceNumber <= 8 && chanceNumber >= 1 ) {  // Create a 1 in 8 chance 
 			chanceAiMoveisPerfect = true;
 		} 
 		console.log( 'Check If Algorithm is HARD ' + chanceNumber + chanceAiMoveisPerfect );
