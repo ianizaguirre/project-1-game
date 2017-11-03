@@ -231,6 +231,7 @@ h4 {
 
 #list li > span {
     padding: 12px;
+    animation: fa-spin 5s infinite linear;
 }
 #list li > span:hover {
     color: #FFFE55;
