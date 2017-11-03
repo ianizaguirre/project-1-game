@@ -110,8 +110,9 @@ function hitThreeLimit() {
 		resetTurnTimer();
 
 		aiProgram();
-
-			countHits = 0; // Reset Count Hits - allows this if statement to run again
+				
+				countHits = 0; // Reset Count Hits - allows this if statement to run again
+			
 	}
 
 }
@@ -126,8 +127,9 @@ function hitThreeLimit() {
 
 
 function aiProgram() {
-	const aiCounter = 4 - (- countHits);
+	console.log('ENTER AI');
 
+	const aiCounter = 4 - (- countHits);
 
 
 	function endTurnBlock() {
@@ -185,7 +187,12 @@ function aiProgram() {
 
 $(document).keypress(function(e) {
   if(e.which === 13) {
-     console.log('RUN RUN RUN22222');
+     console.log('RUN RUN RUN22222!!!!!!!!');
+     resetTurnTimer();
+
+     aiProgram();
+     countHits = 0; // Reset Count Hits - allows this if statement to run again
+     console.log('RUN RUN RUN3333333!!!!!!!!');
   }
 });
 
