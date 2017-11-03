@@ -72,9 +72,9 @@ function countdownVisual() {
 	}, 1000); // End Interval
 }
 
-let secondsUpperLimit = 80;
+let secondsUpperLimit = 8;
 function resetTurnTimer() {
-	secondsUpperLimit = 80;
+	secondsUpperLimit = 8;
 	return secondsUpperLimit;
 }
 // --------- Player Turn Count Down Function
