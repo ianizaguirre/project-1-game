@@ -34,7 +34,7 @@ I also created another "difficulty" level (easy-mode) which randomizes if the pr
 &nbsp;
 
 **Note**
-* To submit a turn on "hard-mode", the player needs to press the "Enter" button on their keyboard.
+* To submit a turn while playing "hard-mode", the player needs to press the "Enter" button on their keyboard.
 
 &nbsp;
 &nbsp;
